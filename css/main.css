@@ -89,7 +89,7 @@ section, .navbar, footer{
 }
 .need{
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 .section__title{
     font-size: 22px;
@@ -111,8 +111,8 @@ section, .navbar, footer{
     line-height: 24px;
 }
 .what-get{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .what-get__list{
     gap: 20px 60px;
@@ -128,8 +128,8 @@ section, .navbar, footer{
     font-weight: 600;
 }
 .how-to-work{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .how-to-work__list{
@@ -142,8 +142,8 @@ section, .navbar, footer{
     padding-left: 18px;
 }
 .comparison{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 table{
     border-collapse: collapse;
@@ -189,8 +189,8 @@ table{
     padding: 10px 15px;
 }
 .tariff{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .tariff__table  th:first-child{
     border-left: 0;
