@@ -1,6 +1,7 @@
 const menu__btn = document.querySelector(".menu__btn");
 const menu__box  = document.querySelector(".menu ");
 const mainBlock = document.querySelector("body ");
+const modal = document.getElementById('contact-modal');
 menu__btn.addEventListener("click", () => {
 
     if (menu__box.classList.contains('open')) {
@@ -18,6 +19,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
     const form = e.target;
     const status = document.getElementById('formStatus');
+    const msg = document.querySelector('.modal__message');
+
     status.textContent = '';
 
     const name = form.name.value.trim();
@@ -32,6 +35,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     if (!emailPattern.test(email)) {
         status.textContent = 'Введите корректный email.';
+        document.querySelector('input[name=email]').classList.add('error');
         return;
     }
 
@@ -43,12 +47,33 @@ document.getElementById('contactForm').addEventListener('submit', async function
         });
 
         if (res.ok) {
-            status.textContent = 'Сообщение отправлено!';
+            msg.textContent = 'Сообщение отправлено!';
+            modal.classList.add('show')
             form.reset();
+
         } else {
-            status.textContent = 'Ошибка при отправке. Попробуйте позже.';
+            msg.textContent = 'Ошибка при отправке. Попробуйте позже.';
+            modal.classList.add('show')
         }
     } catch (err) {
-        status.textContent = 'Ошибка сети. Попробуйте позже.';
+        msg.textContent = 'Ошибка сети. Попробуйте позже.';
+        modal.classList.add('show')
+    }
+    document.getElementById('submit-form').classList.add('disabled')
+});
+
+document.querySelector('.close').addEventListener('click',function (){
+    document.getElementById('contact-modal').classList.remove('show')
+})
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.classList.remove('show')
+
     }
 });
+
+document.querySelector('.open__form').addEventListener('click',function (e){
+    e.preventDefault();
+    document.querySelector('details').open = true;
+    document.querySelector('details').scrollIntoView({ behavior: 'smooth', block: 'start' });
+})
