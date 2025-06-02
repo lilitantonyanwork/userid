@@ -43,8 +43,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
         params.append('email', email);
         params.append('message', message);
 
+
+    const targetUrl = '/feedback.php';
     try {
-        const res = await fetch('https://userid.sh/api/feedback', {
+        const res = await fetch(targetUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
