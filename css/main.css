@@ -173,6 +173,13 @@ table{
 .comparison__table th.tc, .comparison__table td.tc{
     text-align: center;
 }
+td img{
+    width: 15px;
+    margin-right: 5px;
+}
+.j-center{
+    justify-content: center;
+}
 .tariff__table{
     width: 100%;
 }
@@ -227,9 +234,48 @@ footer{
 footer .btn__primary{
     height: 40px;
 }
+.hamburger-menu{
+    display: none;
+}
+.contact__form{
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 20px;
+
+}
+.contact{
+    margin-top: 40px;
+}
+.contact__form label{
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+
+}
+.contact__form input{
+    height: 40px;
+    padding: 10px;
+    outline: none;
+    font-family: Roboto, serif;
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+}
+.contact__form textarea{
+    resize: none;
+    outline: none;
+    padding: 10px;
+    font-family: Roboto, serif;
+    border: none;
+    background: transparent;
+    min-height: 40px;
+    height: 80px;
+    border-bottom: 1px solid #000;
+}
 @media screen and (max-width: 600px){
     body{
-        padding-top: 15px;
+        padding-top: 0;
         padding-bottom: 15px;
 
     }
@@ -292,4 +338,106 @@ footer .btn__primary{
         font-size: 20px;
         margin-bottom: 20px;
     }
+
+
+    .hamburger-menu{
+        display: flex;
+
+        z-index: 4;
+    }
+ #menu__toggle--mob {
+        visibility: hidden;
+     width: 0;
+    }
+    .navbar > .hamburger-menu #menu__toggle--mob{
+        visibility: hidden;
+
+    }
+    #menu__toggle--mob:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+        width: 13px;
+    }
+    #menu__toggle--mob:checked ~ .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0);
+    }
+    #menu__toggle--mob:checked ~ .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+        width: 13px;
+    }
+
+    .menu__btn {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        width: 13px;
+        height: 13px;
+
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+        display: block;
+        position: absolute;
+
+        width: 100%;
+        height: 1px;
+        border-radius: 10px;
+        background-color: #000;
+
+        transition-duration: .25s;
+    }
+    .menu__btn > span::before {
+        content: '';
+        top: -4px;
+    }
+    .menu__btn > span::after {
+        content: '';
+        top: 4px;
+    }
+    .menu__btn{
+        width: 20px;
+    }
+    .menu__btn > span::after{
+        width: 13px;
+    }
+    #menu__toggle:checked ~ .menu__btn > span{
+        width: 13px;
+    }
+    .menu{
+        position: fixed;
+        visibility: hidden;
+        flex-direction: column;
+        height: 100vh;
+        top: 0;
+        left: -100%;
+        box-shadow: 0 0 10px #000;
+        background: #fff;
+        backdrop-filter: blur(30px);
+        transition-duration: .25s;
+        width: 280px;
+        padding-top: 80px;
+        padding-bottom: 50px;
+        align-items: flex-start;
+        padding-left: 30px;
+    }
+    .menu.open {
+        visibility: visible;
+        left: 0;
+        z-index: 1;
+    }
+    .no-scroll{
+        overflow: hidden;
+    }
+    .navbar .container{
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
+
 }
