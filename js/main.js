@@ -38,12 +38,18 @@ document.getElementById('contactForm').addEventListener('submit', async function
         document.querySelector('input[name=email]').classList.add('error');
         return;
     }
+        const params = new URLSearchParams();
+        params.append('name', name);
+        params.append('email', email);
+        params.append('message', message);
 
     try {
         const res = await fetch('https://userid.sh/api/feedback', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message })
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: params.toString(),
         });
 
         if (res.ok) {
